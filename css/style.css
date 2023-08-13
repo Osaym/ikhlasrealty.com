@@ -181,23 +181,6 @@ nav {
   margin-bottom: 2rem;
 }
 
-.contact-form {
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
-
 .contact-form textarea {
   resize: vertical;
 }
