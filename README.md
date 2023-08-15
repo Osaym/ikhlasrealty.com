@@ -1,3 +1,3 @@
-# ikhlasrealty.com
+# IkhlasRealty.com
 
-Realtor website for Ikhlas Hussain
+Realtor website created for realtor Ikhlas Hussain
