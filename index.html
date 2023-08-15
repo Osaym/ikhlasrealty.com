@@ -4,44 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IkhlasRealty.com</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
 
-  <!-- Navigation -->
-  <nav class="bg-gray-900 p-2 mt-0 fixed w-full z-10">
-    <div class="container mx-auto flex items-center">
-      <div class="flex w-1/2 justify-start text-white font-extrabold">
-        <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
-          <span class="text-2xl pl-2">IkhlasRealty.com</span>
-        </a>
-      </div>
-      <div class="flex w-1/2 justify-end content-center">
-        <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
-          <li class="mr-3">
-            <a class="inline-block py-2 px-4 text-white no-underline" href="#home">Home</a>
-          </li>
-          <li class="mr-3">
-            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-4" href="#listings">Listings</a>
-          </li>
-          <li class="mr-3">
-            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-4" href="#about">About Me</a>
-          </li>
-          <li class="mr-3">
-            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:underline py-2 px-4" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+  <!-- NavBar Here -->
+  <nav class="navbar">
+    <div class="navbar-logo">IkhlasRealty.com</div>
+    <div>
+      <a href="#home">Home</a>
+      <a href="#listings">Listings</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Ikhlas Section -->
   <section id="home" class="bg-cover bg-center relative h-screen flex items-center" style="background-image: url('/images/neighborhood.jpg');">
     <div class="absolute inset-0 bg-black opacity-50"></div>
     <div class="container mx-auto text-center relative z-10">
       <h1 class="text-5xl lg:text-7xl font-semibold text-white leading-tight mb-4">Looking for your dream home?</h1>
-      <p class="text-lg text-gray-300 leading-relaxed mb-8">Find the right home that perfectly suits your lifestyle, with help from acclaimed realtor Ikhlas Hussain.</p>
+      <p class="text-lg text-gray-200 leading-relaxed mb-8">Find the right home that perfectly suits your lifestyle, with help from acclaimed realtor Ikhlas Hussain.</p>
       <a href="#listings" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">View Listings</a>
     </div>
   </section>
@@ -57,28 +41,25 @@
 
 <!-- About Section -->
 <section id="about" class="bg-gray-100 py-20">
-  <div class="container mx-auto px-4 flex items-center justify-center">
-    <div class="about-content text-center md:text-left md:flex md:items-center">
-      <div class="md:w-1/2 mb-8 md:mb-0">
-        <img src="/images/ikhlasHussain1.jpeg" alt="Your Image" class="rounded-full mx-auto md:mx-0 md:ml-0 md:mr-8 max-w-xs md:max-w-full" />
-      </div>
-      <div class="md:w-1/2">
-        <h2 class="text-4xl font-semibold text-gray-800 mb-8">About Me</h2>
-        <p class="text-lg text-gray-600 leading-relaxed mx-auto max-w-2xl md:mx-0 md:max-w-none">I am Ikhlas Hussain, and I am a realtor from Southern Massachusetts with years of experience in helping hundreds of clients find their dream home.</p><br>
-        <p class="text-lg text-gray-600 leading-relaxed mx-auto max-w-2xl md:mx-0 md:max-w-none">With a passion for excellent customer service and a deep understanding of the housing market, I'm committed to making your home-buying journey both as smooth and successful as I possibly can.</p><br>
-        <p class="text-lg text-gray-600 leading-relaxed mx-auto max-w-2xl md:mx-0 md:max-w-none">I currently work with one of the most experienced teams in Massachusetts real-estate, Camber Real Estate. We deal in residential, comercial buy and sell, new construction, auctions, rehabs, and rentals. We also provide all forms of insurance and mortgage services.</p><br>
-        <p class="text-lg text-gray-600 leading-relaxed mx-auto max-w-2xl md:mx-0 md:max-w-none">For the last 30 years, I worked at one of the most prestigious banks in the United States, U.S. Bancorp. As a banker, my areas of expertise included portfolio management, asset management, and relationship management. While working with some of the largest investment firms in the country, I managed a portfolio valued at $125 Billion.</p><br>
-        <p class="text-lg text-gray-600 leading-relaxed mx-auto max-w-2xl md:mx-0 md:max-w-none">I was also involved in a large-scale project at World Bank, where I prepared 100 feasibility reports involving the financing of various industrial projects in Pakistan.</p><br>
-        <p class="text-lg text-gray-600 leading-relaxed mx-auto max-w-2xl md:mx-0 md:max-w-none">Languages: English, Urdu, Hindi, Punjabi, and Pushto</p><br>
-        <p class="text-lg text-gray-600 leading-relaxed mx-auto max-w-2xl md:mx-0 md:max-w-none">Designations: Member - GBAR, MAR, NAR</p><br>
-        <p class="text-lg text-gray-600 leading-relaxed mx-auto max-w-2xl md:mx-0 md:max-w-none">Volunteer Services: Member - <a href="https://www.mcssnewengland.org">MCSS New England</a></p><br>
-
-
+  <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center">
+    <div class="md:w-1/2 mb-8 md:mb-0">
+      <img src="/images/ikhlasHussain1.jpeg" alt="Ikhlas" class="rounded-full mx-auto md:mx-0 md:ml-0 md:mr-8 max-w-xs md:max-w-full"/>
+    </div>
+    <div class="md:w-1/2">
+      <h2 class="text-4xl font-semibold text-gray-800 mb-6">About Me</h2>
+      <div class="text-lg text-gray-600 leading-relaxed space-y-4">
+        <p>My name is Ikhlas Hussain. I am a realtor from Southern Massachusetts with decades of experience in helping clients find their dream homes.</p>
+        <p>With a passion for excellent customer service and a deep understanding of the housing market, I'm committed to making your home-buying journey smooth and successful.</p>
+        <p>I work with Camber Real Estate, an experienced team specializing in residential and commercial real estate, new construction, auctions, rehabs, rentals, insurance, and mortgage services.</p>
+        <p>Previously, I worked at U.S. Bancorp with expertise in portfolio management, asset management, and relationship management.</p>
+        <p>I was also involved in preparing feasibility reports for industrial projects at the World Bank.</p>
+        <p>Languages: English, Urdu, Hindi, Punjabi, and Pushto</p>
+        <p>Designations: Member - GBAR, MAR, NAR</p>
+        <p>Volunteer Services: Member - <a href="https://www.mcssnewengland.org" class="text-blue-500 hover:underline" target="_blank">MCSS New England</a></p>
       </div>
     </div>
   </div>
 </section>
-
   <!-- Contact Section -->
   <section id="contact" class="bg-gray-900 py-20">
     <div class="container mx-auto px-4">
@@ -101,12 +82,12 @@
   <!-- Footer -->
   <footer class="bg-gray-800 py-12">
     <div class="container mx-auto px-4">
-      <div class="flex items-center justify-between">
-        <h2 class="text-4xl font-semibold text-white mb-8">IkhlasRealty.com</h2>
+      <div class="flex items-center justify-center">
+        <h2 class="text-4xl font-semibold text-white mb-8 centered-content"><a style="text-decoration: underline;" href="https://ikhlasrealty.com/">IkhlasRealty.com</a></h2>
       </div>
-      <p class="text-gray-600 text-center mt-4">&copy; 2023 Ikhlas Hussain. All rights reserved.</p>
+      <p class="text-gray-600 text-center mt-4">&copy; 2023 Ikhlas Hussain</p>
+      <p class="text-gray-600 text-center mt-4"><a style="text-decoration: underline; font-style: italic; color: aliceblue; filter: drop-shadow(5px 5px 4px #5d5d5f); font-size: 15px;" href="https://www.osaym.com/">Created by Osaym Omar</a></p>
     </div>
   </footer>
-
 </body>
 </html>
