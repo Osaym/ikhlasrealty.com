@@ -16,4 +16,4 @@ document.addEventListener('DOMContentLoaded', function () {
   
       monthlyPayment.value = monthly.toFixed(2);
     });
-  });  
+  });
