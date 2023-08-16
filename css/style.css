@@ -7,14 +7,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f5f5f5;
-}
-
 /* Navbar Style */
 .navbar {
   background: linear-gradient(180deg, #0F3057 0%, #022C43 100%);
@@ -44,38 +36,6 @@ body {
 
 .navbar a:hover {
   background-color: #023E8A;
-}
-
-/* Adjust mobile styles */
-@media (max-width: 640px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 30px; /* Slightly reduce padding for mobile view */
-    height: auto;
-  }
-
-  .navbar-logo {
-    font-size: 30px;
-    filter: drop-shadow(3px 3px 4px #5d5d5f);
-    margin-bottom: 30px;
-  }
-
-  .navbar a {
-    padding: 20px 1; /* Increase padding for better separation */
-    width: 100%;
-    text-align: center;
-    margin-bottom: 5px; /* Add margin between mobile links */
-    background-color: #396c88;
-    border-radius: 20px;
-  }
-}
-
-/* Contact Section Styles */
-.contact {
-  padding: 6rem 0;
-  background-color: #333333;
-  color: #ffffff;
 }
 
 /* Responsive Styles */
