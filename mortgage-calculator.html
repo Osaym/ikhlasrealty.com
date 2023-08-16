@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Mortgage Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    header {
+      background-color: #007bff;
+      color: #ffffff;
+      text-align: center;
+      padding: 10px 0;
+      border-radius: 10px 10px 0 0;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+    }
+    th {
+      text-align: left;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #007bff;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result-container {
+      margin-top: 20px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px 0;
+      background-color: #007bff;
+      color: #ffffff;
+      border-radius: 0 0 10px 10px;
+    }
+    @media (max-width: 768px) {
+      .container {
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+      }
+      header {
+        border-radius: 0;
+      }
+    }
+
+    /* Style the home button */
+    .home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    }
+
+    .home-button:hover {
+    background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/index.html" class="logo"><img src="/images/house.jpeg" alt="Logo" width="50px" height="50px"></a>
+    <h1>Advanced Mortgage Calculator</h1>
+    <a href="/index.html" class="home-button">Return Home?</a>
+  </header>
+  <div class="container">
+    <form id="mortgageForm">
+      <table>
+        <tr>
+          <th>Loan Amount:</th>
+          <td><input type="number" id="loanAmount" name="loanAmount" required></td>
+        </tr>
+        <tr>
+          <th>Down Payment:</th>
+          <td><input type="number" id="downPayment" name="downPayment" required></td>
+        </tr>
+        <tr>
+          <th>Interest Rate (%):</th>
+          <td><input type="number" id="interestRate" name="interestRate" step="0.01" required></td>
+        </tr>
+        <tr>
+          <th>Loan Term (years):</th>
+          <td><input type="number" id="loanTerm" name="loanTerm" required></td>
+        </tr>
+        <tr>
+          <th>Property Insurance (annual):</th>
+          <td><input type="number" id="propertyInsurance" name="propertyInsurance" required></td>
+        </tr>
+        <tr>
+          <th>Property Taxes (annual):</th>
+          <td><input type="number" id="propertyTaxes" name="propertyTaxes" required></td>
+        </tr>
+        <tr>
+          <th>Remaining Years:</th>
+          <td><input type="number" id="remainingYears" name="remainingYears" min="1"></td>
+        </tr>
+        <tr>
+          <th>Calculate Bi-Weekly Payments:</th>
+          <td><input type="checkbox" id="biWeeklyPayments" name="biWeeklyPayments"></td>
+        </tr>
+      </table>
+      <div class="result-container">
+        <button type="button" id="calculateButton">Calculate</button>
+        <div id="result"></div>
+      </div>
+    </form>
+  </div>
+  <footer>
+    <p>&copy; 2023 Advanced Mortgage Calculator. All rights reserved.</p>
+  </footer>
+  <script>
+    const calculateButton = document.getElementById('calculateButton');
+    calculateButton.addEventListener('click', calculateMortgage);
+
+    function calculateMortgage() {
+      const loanAmount = parseFloat(document.getElementById('loanAmount').value);
+      const downPayment = parseFloat(document.getElementById('downPayment').value);
+      const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
+      const loanTerm = parseInt(document.getElementById('loanTerm').value);
+      const propertyInsurance = parseFloat(document.getElementById('propertyInsurance').value);
+      const propertyTaxes = parseFloat(document.getElementById('propertyTaxes').value);
+
+      const principalAmount = loanAmount - downPayment;
+
+      const monthlyInterestRate = interestRate / 12;
+      const numberOfPayments = loanTerm * 12;
+
+      const monthlyPayment = (principalAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
+      const totalPayment = monthlyPayment * numberOfPayments;
+      const totalInterest = totalPayment - principalAmount;
+
+      const annualPropertyExpenses = propertyInsurance + propertyTaxes;
+      const monthlyPropertyExpenses = annualPropertyExpenses / 12;
+
+      const totalMonthlyPayment = monthlyPayment + monthlyPropertyExpenses;
+      const totalPaymentWithExpenses = totalPayment + annualPropertyExpenses;
+
+      const remainingYears = parseFloat(document.getElementById('remainingYears').value);
+      const biWeeklyPayments = document.getElementById('biWeeklyPayments').checked;
+
+      let resultHTML = `
+        <div class="result-container">
+          <h2>Results</h2>
+          <p>Monthly Payment: $${monthlyPayment.toFixed(2)}</p>
+          <p>Total Payment: $${totalPayment.toFixed(2)}</p>
+          <p>Total Interest Paid: $${totalInterest.toFixed(2)}</p>
+          <p>Loan-to-Value Ratio: ${(principalAmount / (loanAmount - downPayment) * 100).toFixed(2)}%</p>
+          <p>Monthly Property Expenses: $${monthlyPropertyExpenses.toFixed(2)}</p>
+          <p>Total Monthly Payment (including expenses): $${totalMonthlyPayment.toFixed(2)}</p>
+          <p>Total Payment (including expenses): $${totalPaymentWithExpenses.toFixed(2)}</p>
+        </div>
+      `;
+
+      document.getElementById('result').innerHTML = resultHTML;
+    }
+  </script>
+</body>
+</html>
