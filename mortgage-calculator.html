@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="/images/ikhlasHussain2.jpeg">
   <title>Advanced Mortgage Calculator</title>
   <style>
+    a:visited {
+      color: white;
+    }
+
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f4;
@@ -98,9 +103,9 @@
 </head>
 <body>
   <header>
-    <a href="/index.html" class="logo"><img src="/images/house.jpeg" alt="Logo" width="50px" height="50px"></a>
-    <h1>Advanced Mortgage Calculator</h1>
-    <a href="/index.html" class="home-button">Return Home?</a>
+    <a href="/index.html" class="logo"><img src="/images/IkhlasRealty.png" alt="Logo" width="70px" height="70px" style="margin-top: 40px;"></a>
+    <h1 style="margin-bottom: 30px;">Advanced Mortgage Calculator</h1>
+    <a href="/index.html" class="home-button" style="margin-bottom: 20px;">Return Home?</a>
   </header>
   <div class="container">
     <form id="mortgageForm">
@@ -139,13 +144,14 @@
         </tr>
       </table>
       <div class="result-container">
-        <button type="button" id="calculateButton">Calculate</button>
+        <button type="button" id="calculateButton" style="font-weight: bold; color: whitesmoke;">Calculate</button>
         <div id="result"></div>
       </div>
     </form>
   </div>
   <footer>
-    <p>&copy; 2023 IkhlasRealty.com</p>
+    <p><a href="index.html">&copy; 2023 IkhlasRealty.com</a></p>
+    <p><a style="text-decoration: none; color: aliceblue; filter: drop-shadow(5px 5px 4px #5d5d5f); font-size: 15px;" href="https://www.github.com/osaym/ikhlasrealty.com/">Created by Osaym Omar</a></p>
   </footer>
   <script>
     const calculateButton = document.getElementById('calculateButton');
