@@ -4,101 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/x-icon" href="/images/ikhlasHussain2.jpeg">
+  <link rel="stylesheet" href="/css/mortgage-calculator.css">
   <title>Advanced Mortgage Calculator</title>
   <style>
-    a:visited {
-      color: white;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #94a3b8;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    header {
-      background-color: #114984;
-      color: #ffffff;
-      text-align: center;
-      padding: 10px 0;
-      border-radius: 10px 10px 0 0;
-      margin-bottom: 20px;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    th, td {
-      padding: 10px;
-      border-bottom: 1px solid #ccc;
-    }
-    th {
-      text-align: left;
-    }
-    button {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      background-color: #3498db;
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    .result-container {
-      margin-top: 20px;
-    }
-    footer {
-      text-align: center;
-      margin-top: 20px;
-      padding: 10px 0;
-      background-color: #114984;
-      color: #ffffff;
-      border-radius: 0 0 10px 10px;
-    }
-    @media (max-width: 768px) {
-      .container {
-        max-width: 100%;
-        border-radius: 0;
-        box-shadow: none;
-        padding: 0;
-      }
-      header {
-        border-radius: 0;
-      }
-    }
-
-    /* Style the home button */
-    .home-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #ffffff;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    text-decoration: none;
-    }
-
-    .home-button:hover {
-    background-color: #2980b9;
-    }
   </style>
 </head>
 <body>
@@ -137,10 +45,6 @@
         <tr>
           <th>Remaining Years:</th>
           <td><input type="number" id="remainingYears" name="remainingYears" min="1"></td>
-        </tr>
-        <tr>
-          <th>Calculate Bi-Weekly Payments:</th>
-          <td><input type="checkbox" id="biWeeklyPayments" name="biWeeklyPayments"></td>
         </tr>
       </table>
       <div class="result-container">
@@ -181,7 +85,6 @@
       const totalPaymentWithExpenses = totalPayment + annualPropertyExpenses;
 
       const remainingYears = parseFloat(document.getElementById('remainingYears').value);
-      const biWeeklyPayments = document.getElementById('biWeeklyPayments').checked;
 
       let resultHTML = `
         <div class="result-container">
