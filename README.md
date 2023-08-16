@@ -6,6 +6,5 @@ IkhlasRealty.com is a website created for Realtor Ikhlas Hussain from Massachuse
 This website also utilizes the Tailwind framework.
 
 ### NEXT STEPS
-* Create mortgage calculator
 * Underline contact links
 * try to hide navbar after click
