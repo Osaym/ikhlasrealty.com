@@ -8,3 +8,5 @@ This website also utilizes the Tailwind framework.
 ### NEXT STEPS
 * Create mortgage calculator
 * Underline contact links
+* Create 404 page
+* try to hide navbar after click
