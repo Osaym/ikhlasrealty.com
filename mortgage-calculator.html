@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="/css/mortgage-calculator.css">
   <title>Advanced Mortgage Calculator</title>
   <style>
+    .required-indicator {
+      color: red;
+      font-weight: bold;
+      margin-left: 5px;
+    }
   </style>
 </head>
 <body>
@@ -19,19 +24,19 @@
     <form id="mortgageForm">
       <table>
         <tr>
-          <th>Loan Amount:</th>
+          <th>Loan Amount<span class="required-indicator">*</span>:</th>
           <td><input type="number" id="loanAmount" name="loanAmount" required></td>
         </tr>
         <tr>
-          <th>Down Payment:</th>
+          <th>Down Payment<span class="required-indicator">*</span>:</th>
           <td><input type="number" id="downPayment" name="downPayment" required></td>
         </tr>
         <tr>
-          <th>Interest Rate (%):</th>
+          <th>Interest Rate (%)<span class="required-indicator">*</span>:</th>
           <td><input type="number" id="interestRate" name="interestRate" step="0.01" required></td>
         </tr>
         <tr>
-          <th>Loan Term (years):</th>
+          <th>Loan Term (years)<span class="required-indicator">*</span>:</th>
           <td>
             <select id="loanTerm" name="loanTerm">
               <option value="10">10 years</option>
@@ -46,11 +51,11 @@
           </td>
         </tr>
         <tr>
-          <th>Property Insurance (annual):</th>
+          <th>Property Insurance (annual)<span class="required-indicator">*</span>:</th>
           <td><input type="number" id="propertyInsurance" name="propertyInsurance" required></td>
         </tr>
         <tr>
-          <th>Property Taxes (annual):</th>
+          <th>Property Taxes (annual)<span class="required-indicator">*</span>:</th>
           <td><input type="number" id="propertyTaxes" name="propertyTaxes" required></td>
         </tr>
         <tr>
@@ -60,6 +65,7 @@
       </table>
       <div class="result-container">
         <button type="button" id="calculateButton" style="font-weight: bold; color: whitesmoke;">Calculate</button>
+        <button type="button" id="resetButton" style="font-weight: bold; color: whitesmoke;">Reset</button>
         <div id="result"></div>
       </div>
     </form>
@@ -72,36 +78,49 @@
     const calculateButton = document.getElementById('calculateButton');
     calculateButton.addEventListener('click', calculateMortgage);
 
+    const resetButton = document.getElementById('resetButton');
+    resetButton.addEventListener('click', resetCalculator);
+
     function formatCurrency(amount) {
       return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
     }
 
     function calculateMortgage() {
-      const loanAmount = parseFloat(document.getElementById('loanAmount').value);
-      const downPayment = parseFloat(document.getElementById('downPayment').value);
-      const interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
+      const loanAmountInput = parseFloat(document.getElementById('loanAmount').value);
+      const downPaymentInput = parseFloat(document.getElementById('downPayment').value);
+      const interestRateInput = parseFloat(document.getElementById('interestRate').value) / 100;
+      const propertyInsuranceInput = parseFloat(document.getElementById('propertyInsurance').value);
+      const propertyTaxesInput = parseFloat(document.getElementById('propertyTaxes').value);
+
+      const isValidInput = [loanAmountInput, downPaymentInput, interestRateInput, propertyInsuranceInput, propertyTaxesInput].every(isNumeric);
+      
+      if (!isValidInput) {
+        alert('ERROR: A non-numeric value has been detected in one of the calculation fields.\n\nPlease review your inputs and correct this error.\n\nIf this error persists, please click the reset button to clear the calculator, and enter your values again.');
+        return;
+      }
 
       let loanTerm;
       const selectedLoanTerm = document.getElementById('loanTerm').value;
       if (selectedLoanTerm === 'custom') {
         loanTerm = parseFloat(document.getElementById('customLoanTerm').value);
+        if (!isNumeric(loanTerm)) {
+          alert('Please enter a valid numeric custom loan term.');
+          return;
+        }
       } else {
         loanTerm = parseFloat(selectedLoanTerm);
       }
 
-      const propertyInsurance = parseFloat(document.getElementById('propertyInsurance').value);
-      const propertyTaxes = parseFloat(document.getElementById('propertyTaxes').value);
+      const principalAmount = loanAmountInput - downPaymentInput;
 
-      const principalAmount = loanAmount - downPayment;
-
-      const monthlyInterestRate = interestRate / 12;
+      const monthlyInterestRate = interestRateInput / 12;
       const numberOfPayments = loanTerm * 12;
 
       const monthlyPayment = (principalAmount * monthlyInterestRate) / (1 - Math.pow(1 + monthlyInterestRate, -numberOfPayments));
       const totalPayment = monthlyPayment * numberOfPayments;
       const totalInterest = totalPayment - principalAmount;
 
-      const annualPropertyExpenses = propertyInsurance + propertyTaxes;
+      const annualPropertyExpenses = propertyInsuranceInput + propertyTaxesInput;
       const monthlyPropertyExpenses = annualPropertyExpenses / 12;
 
       const totalMonthlyPayment = monthlyPayment + monthlyPropertyExpenses;
@@ -113,7 +132,7 @@
           <p>Monthly Payment: ${formatCurrency(monthlyPayment)}</p>
           <p>Total Payment: ${formatCurrency(totalPayment)}</p>
           <p>Total Interest Paid: ${formatCurrency(totalInterest)}</p>
-          <p>Loan-to-Value Ratio: ${(principalAmount / (loanAmount - downPayment) * 100).toFixed(2)}%</p>
+          <p>Loan-to-Value Ratio: ${(principalAmount / (loanAmountInput - downPaymentInput) * 100).toFixed(2)}%</p>
           <p>Monthly Property Expenses: ${formatCurrency(monthlyPropertyExpenses)}</p>
           <p>Total Monthly Payment (including expenses): ${formatCurrency(totalMonthlyPayment)}</p>
           <p>Total Payment (including expenses): ${formatCurrency(totalPaymentWithExpenses)}</p>
@@ -121,6 +140,16 @@
       `;
 
       document.getElementById('result').innerHTML = resultHTML;
+    }
+
+    function resetCalculator() {
+      document.getElementById('mortgageForm').reset();
+      document.getElementById('customLoanTerm').style.display = 'none';
+      document.getElementById('result').innerHTML = '';
+    }
+
+    function isNumeric(value) {
+      return !isNaN(parseFloat(value)) && isFinite(value);
     }
 
     // Show custom loan term input when "Custom" option is selected
@@ -133,5 +162,6 @@
       }
     });
   </script>
+  <script src="/js/mortgage-calculator-gui.js"></script>
 </body>
 </html>
