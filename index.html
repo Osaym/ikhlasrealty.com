@@ -1,97 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IkhlasRealty.com</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-  <link rel="icon" type="image/x-icon" href="/images/ikhlasHussain2.jpeg">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IkhlasRealty.com</title>
+    <!-- <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="icon" type="image/x-icon" href="/images/ikhlasHussain2.jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<body class="bg-gray-100 font-sans leading-normal tracking-normal">
-  <!-- NavBar Here -->
-  <nav class="navbar">
-    <div class="navbar-logo">IkhlasRealty.com</div>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#listings">Listings</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="https://blog.ikhlasrealty.com/">Newsletter</a>
-      <a href="/mortgage-calculator.html">Calculator</a>
-    </div>
-  </nav>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </head>
 
-  <!-- Splash Screen -->
-  <section id="home" class="bg-cover bg-center relative h-screen flex items-center" style="background-image: url('/images/neighborhood.jpg');">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="container mx-auto text-center relative z-10">
-      <h1 class="text-5xl lg:text-7xl font-semibold text-white leading-tight mb-4">Looking for your dream home?</h1>
-      <p class="text-lg text-gray-200 leading-relaxed mb-8">Find the right home that perfectly suits your lifestyle, with help from acclaimed realtor Ikhlas Hussain.</p>
-      <a href="#listings" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">View Listings</a>
-    </div>
-  </section>
-
-  <!-- Listings Section -->
-  <section id="listings" class="bg-white py-20">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-semibold text-gray-800 text-center mb-16">Featured Listings</h2>
-      <center><iframe src="https://camberrealestate.com/current-listings/" width="80%" height="900px" frameborder="0"></iframe></center>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <!-- NavBar Here -->
+    <header class="bg-white">
+      <nav class="flex justify-between items-center w-[92%]  mx-auto">
+          <div>
+              <img class="w-16 cursor-pointer" src="/images/house.jpeg" alt="...">
+          </div>
+          <div class="nav-links duration-500 md:static absolute bg-white md:min-h-fit min-h-[60vh] left-0 top-[-100%] md:w-auto  w-full flex items-center px-5">
+            <ul class="flex md:flex-row flex-col md:items-center md:gap-[4vw] gap-8 font-bold">
+                <li>
+                    <a class="hover:text-gray-500" href="#home">Home</a>
+                </li>
+                <li>
+                    <a class="hover:text-gray-500" href="#listings">Listings</a>
+                </li>
+                <li>
+                    <a class="hover:text-gray-500" href="#about">About</a>
+                </li>
+                <li>
+                    <a class="hover:text-gray-500" href="#contact">Contact</a>
+                </li>
+                <li>
+                    <a class="hover:text-gray-500" href="https://blog.ikhlasrealty.com/">Newsletter</a>
+                </li>
+                <li>
+                  <a class="hover:text-gray-500" href="/mortgage-calculator.html">Calculator</a>
+                </li>
+            </ul>
+          </div>
+          <div class="flex items-center gap-6">
+              <ion-icon onclick="onToggleMenu(this)" name="menu" class="text-3xl cursor-pointer md:hidden"></ion-icon>
+          </div>
+    </header>
+    <!-- Hero section -->
+    <section class="bg-cover bg-center h-screen flex flex-col justify-center items-center text-white bg-overlay" style="background-image: url('/images/neighborhood.webp');">
+      <div class="container mx-auto text-center">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">Welcome to Your Realtor</h1>
+          <p class="text-lg sm:text-xl md:text-2xl mb-8">Your Trusted Partner in Finding Your Dream Home</p>
+          <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105">Contact Us</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="bg-gray-100 py-20">
-    <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center">
-      <div class="md:w-1/2 mb-8 md:mb-0">
-        <img src="/images/ikhlasHussain1.jpeg" alt="Ikhlas" class="rounded-full mx-auto md:mx-0 md:ml-0 md:mr-8 max-w-xs md:max-w-full"/>
-      </div>
-      <div class="md:w-1/2">
-        <h2 class="text-4xl font-semibold text-gray-800 mb-6">About Me</h2>
-        <div class="text-lg text-gray-600 leading-relaxed space-y-4">
-          <p>My name is Ikhlas Hussain. I am a realtor from Massachusetts with decades of experience in helping clients find their dream homes.</p>
-          <p>With a passion for excellent customer service and a deep understanding of the housing market, I'm committed to making your home-buying journey smooth and successful.</p>
-          <p>I work with <a href="https://camberrealestate.com/" class="text-blue-500 hover:underline" target="_blank">Camber Real Estate</a>, an experienced team specializing in residential and commercial real estate, new construction, auctions, rehabs, rentals, insurance, and mortgage services.</p>
-          <p>Previously, I worked at U.S. Bancorp, dealing with portfolio management, asset management, and relationship management.</p>
-          <p>I was also involved in preparing feasibility reports for industrial projects in Pakistan at World Bank.</p>
-          <p>Languages: English, Urdu, Hindi, Punjabi, and Pushto</p>
-          <p>Designations: Member - GBAR, MAR, NAR</p>
-          <p>Volunteer Services: Member - <a href="https://www.mcssnewengland.org" class="text-blue-500 hover:underline" target="_blank">MCSS New England</a></p>
+    <!-- Listings Section -->
+    <section id="listings" class="bg-white py-20">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-semibold text-gray-800 text-center mb-16">Featured Listings</h2>
+        <center><iframe src="https://camberrealestate.com/current-listings/" width="80%" height="900px" frameborder="0"></iframe></center>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="bg-gray-900 py-20">
-    <div class="container mx-auto px-4">
-      <div class="text-center">
-        <h2 class="text-4xl font-semibold text-white mb-8">Contact Me</h2>
-
-        <p class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12">Do you have questions? Would you like to schedule a viewing?</p>
-        <p class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12">Reach out to me directly!</p>
-
-        <p class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12">Email: 
-          <a class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12" href="mailto:ikhlashussain@live.com">ikhlashussain@live.com</a>
-        </p>
-        <p class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12">Phone: 
-          <a class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12" href="tel:6177636887">(617) 763-6887</a>
-        </p>
+    <!-- About Section -->
+    <section id="about" class="bg-gray-100 py-20">
+      <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-center">
+        <div class="md:w-1/2 mb-8 md:mb-0">
+          <img src="/images/ikhlasHussain1.jpeg" alt="Ikhlas" class="rounded-full mx-auto md:mx-0 md:ml-0 md:mr-8 max-w-xs md:max-w-full"/>
+        </div>
+        <div class="md:w-1/2">
+          <h2 class="text-4xl font-semibold text-gray-800 mb-6">About Me</h2>
+          <div class="text-lg text-gray-600 leading-relaxed space-y-4">
+            <p>My name is Ikhlas Hussain. I am a realtor from Massachusetts with decades of experience in helping clients find their dream homes.</p>
+            <p>With a passion for excellent customer service and a deep understanding of the housing market, I'm committed to making your home-buying journey smooth and successful.</p>
+            <p>I work with <a href="https://camberrealestate.com/" class="text-blue-500 hover:underline" target="_blank">Camber Real Estate</a>, an experienced team specializing in residential and commercial real estate, new construction, auctions, rehabs, rentals, insurance, and mortgage services.</p>
+            <p>Previously, I worked at U.S. Bancorp, dealing with portfolio management, asset management, and relationship management.</p>
+            <p>I was also involved in preparing feasibility reports for industrial projects in Pakistan at World Bank.</p>
+            <p>Languages: English, Urdu, Hindi, Punjabi, and Pushto</p>
+            <p>Designations: Member - GBAR, MAR, NAR</p>
+            <p>Volunteer Services: Member - <a href="https://www.mcssnewengland.org" class="text-blue-500 hover:underline" target="_blank">MCSS New England</a></p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-800 py-12">
-    <div class="container mx-auto px-4">
-      <div class="flex items-center justify-center">
-        <h2 class="text-4xl font-semibold text-white mb-8 centered-content"><a style="text-decoration: underline;" href="https://ikhlasrealty.com/">IkhlasRealty.com</a></h2>
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-900 py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center">
+          <h2 class="text-4xl font-semibold text-white mb-8">Contact Me</h2>
+
+          <p class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12">Do you have questions? Would you like to schedule a viewing?</p>
+          <p class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12">Reach out to me directly!</p>
+
+          <p class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12">Email: 
+            <a class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12" href="mailto:ikhlashussain@live.com">ikhlashussain@live.com</a>
+          </p>
+          <p class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12">Phone: 
+            <a class="text-lg text-gray-300 leading-relaxed mx-auto max-w-2xl mb-12" href="tel:6177636887">(617) 763-6887</a>
+          </p>
+        </div>
       </div>
-      <p class="text-gray-600 text-center mt-4">&copy; 2023 Ikhlas Hussain</p>
-      <p class="text-gray-600 text-center mt-4"><a style="text-decoration: underline; color: aliceblue; filter: drop-shadow(5px 5px 4px #5d5d5f); font-size: 15px;" href="https://www.github.com/osaym/ikhlasrealty.com/">Made with ❤️ by Osaym Omar</a></p>
-    </div>
-  </footer>
-</body>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-12">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-center">
+          <h2 class="text-4xl font-semibold text-white mb-8 centered-content"><a style="text-decoration: underline;" href="https://ikhlasrealty.com/">IkhlasRealty.com</a></h2>
+        </div>
+        <p class="text-gray-600 text-center mt-4">&copy; 2023 Ikhlas Hussain</p>
+        <p class="text-gray-600 text-center mt-4"><a style="text-decoration: underline; color: aliceblue; filter: drop-shadow(5px 5px 4px #5d5d5f); font-size: 15px;" href="https://www.github.com/osaym/ikhlasrealty.com/">Made with ❤️ by Osaym Omar</a></p>
+      </div>
+    </footer>
+    <script>
+      const navLinks = document.querySelector('.nav-links')
+      function onToggleMenu(e){
+          e.name = e.name === 'menu' ? 'close' : 'menu'
+          navLinks.classList.toggle('top-[9%]')
+      }
+    </script>
+  </body>
 </html>
